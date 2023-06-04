@@ -3,7 +3,6 @@ package mx.com.ease.sidmea.persistencia.crud;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 import mx.com.ease.sidmea.persistencia.entity.Regioncita;
 

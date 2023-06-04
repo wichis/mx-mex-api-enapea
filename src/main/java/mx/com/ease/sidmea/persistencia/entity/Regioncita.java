@@ -18,9 +18,9 @@ public class Regioncita {
 	private String nombre;
 	@Column(name="nombre_corto")
 	private String nombreCorto;
+	
 	@Column(name="id_estado")
 	private Integer idEstado;
-	
 	@ManyToOne
 	@JoinColumn(name="id_estado", insertable=false, updatable=false)
 	private Estado estado;

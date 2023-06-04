@@ -2,13 +2,11 @@ package mx.com.ease.sidmea.domain.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mx.com.ease.sidmea.persistencia.EstadoRepository;
-import mx.com.ease.sidmea.persistencia.crud.EstadoCrudRepository;
 import mx.com.ease.sidmea.persistencia.entity.Estado;
 
 @Service

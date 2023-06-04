@@ -12,33 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.com.ease.sidmea.domain.service.EstadoService;
-import mx.com.ease.sidmea.persistencia.entity.Estado;
+import mx.com.ease.sidmea.domain.service.ComponenteService;
+import mx.com.ease.sidmea.persistencia.entity.Componente;
 
 @RestController
-@RequestMapping("/estados")
-public class EstadoController {
+@RequestMapping("/componentes")
+public class ComponenteController {
 	@Autowired
-	private EstadoService estadoService;
+	private ComponenteService servicio;
 	
 	@GetMapping("all")
-	public List<Estado> getAll(){
-		return this.estadoService.getAll();
+	public List<Componente> getAll(){
+		return this.servicio.getAll();
 	}
+	
 	@GetMapping("/{id}")
-	public Optional<Estado> getState(@PathVariable("id") int stateId){
-		return this.estadoService.getEstado(stateId);
+	public Optional<Componente> getNivel(@PathVariable("id") int componenteId){
+		return this.servicio.getComponente(componenteId);
 	}
+	
 	@PostMapping("/save")
-	public Estado save(@RequestBody Estado s) {
-		return this.estadoService.save(s);
+	public Componente save(@RequestBody Componente c) {
+		return this.servicio.save(c);
 	}
+	
 	@DeleteMapping("delete/{id}")
-	public boolean delete(@PathVariable("id") int stateId) {
-		return this.estadoService.delete(stateId);
+	public boolean delete(@PathVariable("id") int componenteId) {
+		return this.servicio.delete(componenteId);
 	}
+	
 	@DeleteMapping("/borrar")
-	public boolean delete(@RequestBody Estado state) {
-		return this.estadoService.delete(state);
+	public boolean delete(@RequestBody Componente c) {
+		return this.servicio.delete(c);
 	}
 }

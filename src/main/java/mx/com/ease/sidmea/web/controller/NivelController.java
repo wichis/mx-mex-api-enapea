@@ -12,33 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.com.ease.sidmea.domain.service.EstadoService;
-import mx.com.ease.sidmea.persistencia.entity.Estado;
+import mx.com.ease.sidmea.domain.service.NivelService;
+import mx.com.ease.sidmea.persistencia.entity.Nivel;
 
 @RestController
-@RequestMapping("/estados")
-public class EstadoController {
+@RequestMapping("/niveles")
+public class NivelController {
 	@Autowired
-	private EstadoService estadoService;
+	private NivelService servicio;
 	
 	@GetMapping("all")
-	public List<Estado> getAll(){
-		return this.estadoService.getAll();
+	public List<Nivel> getAll() {
+		return this.servicio.getAll();
 	}
+	
 	@GetMapping("/{id}")
-	public Optional<Estado> getState(@PathVariable("id") int stateId){
-		return this.estadoService.getEstado(stateId);
+	public Optional<Nivel> getNivel(@PathVariable("id") int nivelId){
+		return this.servicio.getNivel(nivelId);
 	}
+	
 	@PostMapping("/save")
-	public Estado save(@RequestBody Estado s) {
-		return this.estadoService.save(s);
+	public Nivel save(@RequestBody Nivel n) {
+		return this.servicio.save(n);
 	}
+	
 	@DeleteMapping("delete/{id}")
-	public boolean delete(@PathVariable("id") int stateId) {
-		return this.estadoService.delete(stateId);
+	public boolean delete(@PathVariable("id") int nivelId) {
+		return this.servicio.delete(nivelId);
 	}
+	
 	@DeleteMapping("/borrar")
-	public boolean delete(@RequestBody Estado state) {
-		return this.estadoService.delete(state);
+	public boolean delete(@RequestBody Nivel nivel) {
+		return this.servicio.delete(nivel);
 	}
 }
