@@ -3,6 +3,7 @@ package mx.com.ease.sidmea.persistencia;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import mx.com.ease.sidmea.persistencia.crud.RegioncitaCrudRepository;
@@ -10,6 +11,7 @@ import mx.com.ease.sidmea.persistencia.entity.Regioncita;
 
 @Repository
 public class RegioncitaRepository {
+	@Autowired
 	private RegioncitaCrudRepository repository;
 	
 	public List<Regioncita> getAll(){
