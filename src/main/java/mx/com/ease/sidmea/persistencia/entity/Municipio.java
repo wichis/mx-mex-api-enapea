@@ -1,35 +1,35 @@
 package mx.com.ease.sidmea.persistencia.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="regiones")
-public class Regioncita {
-	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_region")
+@Table(name="municipios")
+public class Municipio {
+	@Id 
+	@Column(name="id_municipio")
 	private Integer id;
 	
 	private String nombre;
+	
 	@Column(name="nombre_corto")
 	private String nombreCorto;
 	
-	@Column(name="id_estado")
+	/*@Column(name="id_estado")
 	private Integer idEstado;
 	@ManyToOne
 	@JoinColumn(name="id_estado", insertable=false, updatable=false)
-	private Estado estado;
+	private Estado estado;*/
 	
-	@OneToMany(mappedBy="region")
-	private List<Municipio> municipios;
+	@Column(name="id_region")
+	private Integer idRegion;
+	@ManyToOne
+	@JoinColumn(name="id_region", insertable=false, updatable=false)
+	private Regioncita region;
 	
 	public Integer getId() {
 		return id;
@@ -49,10 +49,16 @@ public class Regioncita {
 	public void setNombreCorto(String nombreCorto) {
 		this.nombreCorto = nombreCorto;
 	}
-	public Integer getIdEstado() {
+	/*public Integer getIdEstado() {
 		return idEstado;
 	}
 	public void setIdEstado(Integer idEstado) {
 		this.idEstado = idEstado;
+	}*/
+	public Integer getIdRegion() {
+		return idRegion;
+	}
+	public void setIdRegion(Integer idRegion) {
+		this.idRegion = idRegion;
 	}
 }

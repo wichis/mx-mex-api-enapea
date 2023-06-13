@@ -25,6 +25,7 @@ public class Componente {
 	
 	@OneToMany(mappedBy="componente")
 	private List<Indicador> indicadores;
+	
 	@OneToMany(mappedBy="componente")
 	private List<SubComponente> subcomponentes;
 	

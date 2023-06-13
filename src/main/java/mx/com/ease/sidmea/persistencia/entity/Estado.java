@@ -22,6 +22,9 @@ public class Estado {
 	@OneToMany(mappedBy="estado")
 	private List<Regioncita> regiones;
 	
+	/*@OneToMany(mappedBy="estado")
+	private List<Municipio> municipios;*/
+	
 	public Integer getId() {
 		return id;
 	}
