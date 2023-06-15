@@ -44,7 +44,7 @@ public class MunicipioService {
 	}
 	
 	public boolean delete(int municipioId) {
-		return getMunicipio(municipioId).map(region ->{
+		return getMunicipio(municipioId).map(municipio ->{
 			this.repository.delete(municipioId);
 			return true;
 		}).orElse(false);

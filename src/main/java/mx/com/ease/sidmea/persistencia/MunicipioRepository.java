@@ -40,8 +40,8 @@ public class MunicipioRepository {
 		return municipios;
 	}
 	
-	public List<Municipio> getByRegion(int idEstado){
-		return (List<Municipio>) this.repository.findByIdRegion(idEstado);
+	public List<Municipio> getByRegion(int idRegion){
+		return (List<Municipio>) this.repository.findByIdRegion(idRegion);
 	}
 	public Optional<Municipio> getMunicipio(int munId){
 		return this.repository.findById(munId);

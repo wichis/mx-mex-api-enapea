@@ -1,10 +1,13 @@
 package mx.com.ease.sidmea.persistencia.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +33,9 @@ public class Municipio {
 	@ManyToOne
 	@JoinColumn(name="id_region", insertable=false, updatable=false)
 	private Regioncita region;
+	
+	@OneToMany(mappedBy="municipio")
+	private List<Localidad> localidades;
 	
 	public Integer getId() {
 		return id;
